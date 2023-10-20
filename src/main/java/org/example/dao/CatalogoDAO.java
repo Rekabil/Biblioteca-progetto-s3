@@ -40,10 +40,23 @@ public class CatalogoDAO {
             System.out.println("Libro/Revista Non Essiste Nella Biblioteca");
         }
     }
+
 public List<Catalogo> findByYear(int anno) {
     TypedQuery<Catalogo> getCatalogo = em.createQuery("SELECT c FROM Catalogo c WHERE c.anno = :anno", Catalogo.class);
     getCatalogo.setParameter("anno" , anno);
     return getCatalogo.getResultList();
 }
+
+    public List<Catalogo> findByAuthor(String autore) {
+        TypedQuery<Catalogo> getCatalogo = em.createQuery("SELECT c FROM Catalogo c WHERE c.autore = :autore", Catalogo.class);
+        getCatalogo.setParameter("autore" , autore);
+        return getCatalogo.getResultList();
+    }
+    public List<Catalogo> findByTitolo(String titolo) {
+        TypedQuery<Catalogo> getCatalogo = em.createQuery("SELECT c FROM Catalogo c WHERE c.titolo = :titolo", Catalogo.class);
+        getCatalogo.setParameter("titolo" , titolo);
+        return getCatalogo.getResultList();
+    }
+
 
 }

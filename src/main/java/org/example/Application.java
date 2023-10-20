@@ -21,13 +21,15 @@ private static final EntityManagerFactory emf = JpaUtils.getEntityManagerFactory
         try {
             CatalogoDAO catalogoDAO =new CatalogoDAO(em);
             System.out.println("Hello");
-//
+
 //            Libri libro = new Libri("i promessi sposi", 1857, 987, "Alessandro Manzoni" , "Romanzo");
 //            Revista revista = new Revista("Guide" , 2015, 75, Periodicita.MENSILE);
 //
 //            catalogoDAO.save(libro);
 //            catalogoDAO.save(revista);
-            System.out.println(catalogoDAO.findByYear(1857));
+//            System.out.println(catalogoDAO.findByTitolo("Guide"));
+
+
 
 
         } catch (Exception ex){
