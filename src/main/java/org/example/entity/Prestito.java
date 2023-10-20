@@ -1,5 +1,7 @@
 package org.example.entity;
 
+import org.example.dao.PrestitoDAO;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -10,13 +12,16 @@ public class Prestito {
     @Id
     @GeneratedValue
     private long id;
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "utente_id", nullable = false)
     private Utente utente;
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "catalogo_isbn",nullable = false)
     private Catalogo elemento;
     private LocalDate dataInizio;
     private LocalDate dataRestituzionePrevista;
     private LocalDate dataRestituzioneEffettiva;
+    public Prestito() {}
 
     public Prestito(Utente utente, Catalogo elemento, LocalDate dataInizio){
         this.utente = utente;

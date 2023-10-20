@@ -53,7 +53,7 @@ public List<Catalogo> findByYear(int anno) {
         return getCatalogo.getResultList();
     }
     public List<Catalogo> findByTitolo(String titolo) {
-        TypedQuery<Catalogo> getCatalogo = em.createQuery("SELECT c FROM Catalogo c WHERE c.titolo = :titolo", Catalogo.class);
+        TypedQuery<Catalogo> getCatalogo = em.createQuery("SELECT c FROM Catalogo c WHERE LOWER(c.titolo) LIKE LOWER(CONCAT(:titolo, '%'))", Catalogo.class);
         getCatalogo.setParameter("titolo" , titolo);
         return getCatalogo.getResultList();
     }
