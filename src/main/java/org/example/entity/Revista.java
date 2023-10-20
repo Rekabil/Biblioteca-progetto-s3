@@ -12,7 +12,9 @@ public class Revista extends Catalogo{
 
     @Enumerated(EnumType.STRING)
     private Periodicita periodicita;
-    public Revista(String titolo, LocalDate anno, int numPagine, Periodicita periodicita) {
+
+    public Revista() {}
+    public Revista(String titolo, int anno, int numPagine, Periodicita periodicita) {
         super(titolo, anno, numPagine);
         this.periodicita = periodicita;
     }
@@ -29,6 +31,6 @@ public class Revista extends Catalogo{
     public String toString() {
         return "Revista{" +
                 "periodicita=" + periodicita +
-                '}' + super.toString();
+                ", " + super.toString();
     }
 }

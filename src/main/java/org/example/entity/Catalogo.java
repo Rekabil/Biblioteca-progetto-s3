@@ -1,7 +1,5 @@
 package org.example.entity;
 
-import net.bytebuddy.asm.Advice;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -15,12 +13,17 @@ public abstract class Catalogo {
     @GeneratedValue
     private long isbn;
 private String titolo;
-private LocalDate anno;
+private int anno;
 private int numPagine;
 
-public Catalogo(String titolo, LocalDate anno, int numPagine) {
+public Catalogo() {}
+
+public Catalogo(String titolo, int anno, int numPagine) {
     this.titolo= titolo;
+
+
     this.anno = anno;
+
     this.numPagine = numPagine;
 }
 
@@ -32,7 +35,7 @@ public Catalogo(String titolo, LocalDate anno, int numPagine) {
         return numPagine;
     }
 
-    public LocalDate getAnno() {
+    public int getAnno() {
         return anno;
     }
 
@@ -44,7 +47,7 @@ public Catalogo(String titolo, LocalDate anno, int numPagine) {
         this.titolo = titolo;
     }
 
-    public void setAnno(LocalDate anno) {
+    public void setAnno(int anno) {
         this.anno = anno;
     }
 
@@ -58,8 +61,7 @@ public Catalogo(String titolo, LocalDate anno, int numPagine) {
 
     @Override
     public String toString() {
-        return "Catalogo{" +
-                "isbn=" + isbn +
+        return "isbn=" + isbn +
                 ", titolo='" + titolo + '\'' +
                 ", anno=" + anno +
                 ", numPagine=" + numPagine +

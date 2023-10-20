@@ -10,9 +10,9 @@ public class Prestito {
     @Id
     @GeneratedValue
     private long id;
-    @OneToOne(mappedBy = "prestito")
+    @OneToOne
     private Utente utente;
-    @OneToOne(mappedBy = "prestito")
+    @OneToOne
     private Catalogo elemento;
     private LocalDate dataInizio;
     private LocalDate dataRestituzionePrevista;

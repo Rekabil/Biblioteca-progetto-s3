@@ -2,16 +2,16 @@ package org.example.entity;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import java.time.LocalDate;
 
 @Entity
 @DiscriminatorValue("Libri")
 public class Libri extends Catalogo {
 
+    public Libri() {}
     private String autore;
     private String genere;
 
-    public Libri(String titolo, LocalDate anno, int numPagine, String autore, String genere) {
+    public Libri(String titolo, int anno, int numPagine, String autore, String genere) {
         super(titolo, anno, numPagine);
         this.autore = autore;
         this.genere= genere;
@@ -38,6 +38,6 @@ public class Libri extends Catalogo {
         return "Libri{" +
                 "autore='" + autore + '\'' +
                 ", genere='" + genere + '\'' +
-                '}' + super.toString();
+                ", " + super.toString();
     }
 }
