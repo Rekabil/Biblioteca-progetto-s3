@@ -22,22 +22,23 @@ private static final EntityManagerFactory emf = JpaUtils.getEntityManagerFactory
             UtenteDAO utenteDAO = new UtenteDAO(em);
             CatalogoDAO catalogoDAO =new CatalogoDAO(em);
             PrestitoDAO prestitoDAO = new PrestitoDAO(em);
-            System.out.println("Hello");
-
-//            Libri libro = new Libri("i promessi sposi", 1857, 987, "Alessandro Manzoni" , "Romanzo");
-//            Revista revista = new Revista("Guide" , 2015, 75, Periodicita.MENSILE);
-//
-//            catalogoDAO.save(libro);
-//            catalogoDAO.save(revista);
-//System.out.println(catalogoDAO.findByTitolo("i"));
 
 
-        //    Utente utente = new Utente("Remzi", "Bilgen" , LocalDate.of(2002,4,10));
 
-//            Prestito prestito= new Prestito(utenteDAO.findById(6) , catalogoDAO.findByIsbn(4) , LocalDate.of(2001, 2, 3));
-//prestitoDAO.save(prestito);
-
-          System.out.println(prestitoDAO.findByUserId(6));
+System.out.println("Salva Elemento");
+            Libri libro = new Libri("i promessi sposi", 1857, 987, "Alessandro Manzoni" , "Romanzo");
+catalogoDAO.save(libro);
+            System.out.println("Rimuovere un Elemento");
+catalogoDAO.deleteByIsbn(15);
+            System.out.println("Ricerca per ISBN");
+            System.out.println(catalogoDAO.findByIsbn(1));
+            System.out.println("Ricerca per anno publicazione");
+            System.out.println(catalogoDAO.findByYear(1857));
+            System.out.println("Ricerca per titolo o parte di esso");
+            System.out.println(catalogoDAO.findByTitolo("i"));
+            System.out.println("Ricerca prestito tramite id utente");
+            System.out.println(prestitoDAO.findByUserId(6));
+            System.out.println("Ricerca di tutti i prestiti scaduti e non ancora restituiti");
             System.out.println(prestitoDAO.findByMissingBook());
 
 
